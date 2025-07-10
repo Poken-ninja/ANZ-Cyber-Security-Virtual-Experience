@@ -1,118 +1,146 @@
-# ANZ-Cyber-Security-Virtual-Experience
-online-safety-tips.md
-# Online Safety and Cybersecurity Tips
+# ANZ Cyber Security Virtual Experience 🛡️
 
-This document summarizes key cybersecurity practices to stay safe online, especially when banking, shopping, or communicating digitally. The information is adapted from ANZ's cybersecurity awareness training material.
-
----
-
-## Key Points
-
-- Being alert while browsing, banking, or shopping online is essential to protect yourself from cybercriminals.
-- Use strong, unique passwords, enable multi-factor authentication, and avoid clicking on suspicious links.
-- Be cautious of unexpected messages or calls that pressure you to act quickly or disclose personal information.
+**Platform:** [Forage](https://www.theforage.com/)
+**Author:** [Poken-ninja (Pratham M.)](https://github.com/Poken-ninja)
+**Repo:** [View on GitHub](https://github.com/Poken-ninja/ANZ-Cyber-Security-Virtual-Experience)
 
 ---
 
-## How to Bank Safely Online
+## 📌 Overview
 
-- Always access ANZ by manually typing `www.anz.com.au` in your browser.
-- Enable multi-factor authentication (MFA) to add an extra layer of protection.
-- Avoid online banking on public Wi-Fi.
-- Log out and close your browser after your session.
-- Never share your ANZ password, PIN, or Shield code.
-- ANZ will never request confidential info via email or message.
+This project showcases my participation in the **ANZ Cyber Security Virtual Experience**. I simulated the role of a SOC (Security Operations Center) analyst, where I:
 
----
-
-## How to Create and Protect Strong Passwords
-
-- Use at least 8 characters with a mix of upper/lowercase letters, numbers, and symbols.
-- Consider using passphrases (e.g., `purplePearprincessParis`) for added strength.
-- Avoid common or easily guessable passwords.
-- Use different passwords for each account.
-- Use a password manager to safely store credentials.
-- Change your password immediately if you suspect it has been compromised.
+* Investigated network traffic (PCAP files)
+* Extracted hidden files (PDFs, ZIPs, JPEGs, Base64)
+* Performed forensic analysis on suspicious downloads
+* Analyzed phishing emails
+* Documented findings in a professional format
 
 ---
 
-## How to Shop Safely Online
+## 🧠 Skills Gained
 
-- Look for the `https://` and padlock icon in the browser address bar.
-- Verify legitimacy of online stores using independent review sites like Trustpilot.
-- Always double-check URLs (watch out for typos like `ANNZ` instead of `ANZ`).
-- Prefer secure payment methods such as PayPal or BPAY.
-- Never share credit card or bank info via email, SMS, or social media.
-- Use PayID when transacting via online marketplaces.
-
----
-
-## Dealing with Cyberbullying and Online Harassment
-
-- Report abusive content to the platform it’s happening on.
-- Use the [eSafety Commissioner](https://www.esafety.gov.au/) to report bullying (under or over 18).
-- Contact support services such as:
-  - 1800 RESPECT
-  - Lifeline: 13 11 14
-  - Australian Human Rights Commission
+* Packet capture analysis using **Wireshark**
+* File signature recognition and **hex editing with HxD**
+* **Base64 decoding**, ZIP carving, and PDF recovery
+* Steganographic clue identification
+* Real-world **email phishing detection**
+* Secure browsing & password hygiene tips
 
 ---
 
-## Protecting Your Personal Information
+## 🧪 Technical Task Breakdown
 
-- Set your social media accounts to private.
-- Enable automatic security updates on all devices.
-- Think before sharing personal info online.
-- Be cautious of unexpected messages requesting you to click links or scan QR codes.
+### 🔍 Sub-task 1: Extract `anz-logo.jpg` and `bank-card.jpg`
+
+* Used Wireshark → Export HTTP Objects
+* Valid JPEG signatures (FFD8)
+* Successfully saved and analyzed images
+
+### 🖼️ Sub-task 2: Hidden content in `ANZ1.jpg` & `ANZ2.jpg`
+
+* Found multiple JPEG markers (FFD8–FFD9)
+* Possible steganographic data
+* Flags covert communication methods
+
+### 📄 Sub-task 3: Suspicious DOCX file (`how-to-commit-crimes.docx`)
+
+* Not a valid Word doc; actually plain text
+* Contained malicious guidance
+* Transmitted via insecure HTTP
+
+### 📑 Sub-task 4: PDF Extraction (`ANZ_Document.pdf`, `ANZ_Document2.pdf`, `evil.pdf`)
+
+* Reconstructed using hex signature `%PDF-` (25 50 44 46)
+* Full extraction using HxD + Wireshark streams
+* Saved as working PDFs
+
+### 🧾 Sub-task 5: `hiddenmessage2.txt`
+
+* Image hidden inside a text file
+* Extracted by identifying JPEG markers in content
+* Illustrates obfuscation techniques
+
+### 🏧 Sub-task 6: `atm-image.jpg`
+
+* Single GET request downloaded two files
+* Image content shows cartoon ATMs
+* Confirmed valid JPEG with no tampering
+
+### 📦 Sub-task 7: `broken.png` (Base64-encoded)
+
+* No file signature in hex
+* Identified ASCII Base64 string (`iVBORw0KGgo...`)
+* Decoded online and saved as `.png`
+
+### 🔐 Sub-task 8: `securepdf.pdf` (ZIP → PDF)
+
+* Started with `PK` (50 4B) indicating ZIP
+* Extracted with HxD, saved as ZIP
+* Unzipped to reveal `securepdf.pdf`, password: `secure`
 
 ---
 
-## Signs of Identity Theft
+## ✉️ Phishing Email Analysis
 
-1. Unfamiliar transactions on your bank statements.
-2. Calls or messages about unknown services or bills.
-3. Notifications about rebates or money claims in your name.
-4. Difficulty applying for credit due to a poor credit score.
-5. Increase in suspicious calls and messages.
+I reviewed **7 emails** and analyzed headers, links, urgency, sender reputation, and spoofing techniques.
 
----
-
-## Signs of a Scam or Suspicious Message
-
-- The message is unexpected and from an unknown sender.
-- There's urgency or pressure to act quickly.
-- It asks for personal or financial information.
-- It impersonates a trusted entity but with incorrect contact info or URLs.
+| Email | Verdict     | Reasoning                                          |
+| ----- | ----------- | -------------------------------------------------- |
+| 1     | ❌ Malicious | From `.ru` domain, urgency, vague file download    |
+| 2     | ✅ Safe      | Personal email, no links, casual context           |
+| 3     | ❌ Malicious | Typo-squatting (`facebⓈook`), fake domain          |
+| 4     | ✅ Safe      | Marketing email with valid product links           |
+| 5     | ❌ Malicious | Fake FBI agent, dramatic scam narrative            |
+| 6     | ✅ Safe      | Internal ANZ employee communication                |
+| 7     | ❌ Malicious | Phishing insurance promo, fake domain, "hxxp" link |
 
 ---
 
-## What to Do If You Think You’ve Been Scammed
+## 🧠 Online Safety & Awareness Takeaways
 
-- Immediately contact your bank.
-- Block or cancel your cards if card details were shared.
-- Report the scam to the app/platform used for communication.
+### Banking & Browsing Tips
+
+* Use **MFA**, avoid public Wi-Fi, and log out after sessions
+* Only visit `https://www.anz.com.au` by typing it manually
+
+### Strong Password Hygiene
+
+* Use **12+ char passphrases** (e.g., `PurplePearPrincess`)
+* Use a **password manager**
+* Never reuse passwords across sites
+
+### Secure Shopping Habits
+
+* Check for **padlock** icon (`https://`)
+* Avoid sharing card info via messages
+* Verify sellers via **Trustpilot** or reviews
+
+### Identity Theft Red Flags
+
+* Unknown services, credit score drops, rebate notifications
+* Spike in spam or scam calls
+
+### Reporting Scams
+
+* [ReportCyber](https://www.cyber.gov.au/report)
+* [Scamwatch](https://www.scamwatch.gov.au/)
+* [IDCare](https://www.idcare.org/)
 
 ---
 
-## Who to Contact if You’ve Been Scammed
+## 🧭 Why I’m Interested in Cybersecurity
 
-- [ReportCyber (ASD)](https://www.cyber.gov.au/report) – For scams involving loss of money or data.
-- [Scamwatch](https://www.scamwatch.gov.au/) – Report scams to help prevent others.
-- Services Australia: 1800 941 126 – For government account fraud.
-- [IDCare](https://www.idcare.org/) – Free support for identity and cyber incidents.
-- ANZ Customers:
-  - Use the ANZ App
-  - Or call ANZ directly to report fraud.
- 
-  - “Why are you interested in this role?”
+> I recently participated in ANZ's virtual job simulation on Forage, which deepened my interest in cybersecurity.
+> I enjoyed identifying phishing emails and decoding PCAP files to find hidden threats.
+> This project confirmed that I love investigating complex security problems and want to grow as a cybersecurity professional.
 
-I recently participated in ANZ's virtual job simulation on the Forage platform,
-and it was incredibly useful to understand what it might be like to participate
-on a cybersecurity team at ANZ.
-I worked on a project to identify cybersecurity threats and practiced
-identifying phishing emails and analysing a packet capture file in a real-world
-context.
-Doing this program confirmed that I really enjoy working on complex security
-threats and I’m excited to apply these skills on a cybersecurity team at a
-company like ANZ.
+---
+
+## ✅ Status
+
+> **✔ All 8 technical tasks completed**
+> **✔ Phishing emails analyzed**
+> **✔ Awareness best practices documented**
+> **📂 Repo:** [ANZ-Cyber-Security-Virtual-Experience](https://github.com/Poken-ninja/ANZ-Cyber-Security-Virtual-Experience)
 
