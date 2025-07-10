@@ -103,4 +103,16 @@ This document summarizes key cybersecurity practices to stay safe online, especi
 - ANZ Customers:
   - Use the ANZ App
   - Or call ANZ directly to report fraud.
+ 
+  - “Why are you interested in this role?”
+
+I recently participated in ANZ's virtual job simulation on the Forage platform,
+and it was incredibly useful to understand what it might be like to participate
+on a cybersecurity team at ANZ.
+I worked on a project to identify cybersecurity threats and practiced
+identifying phishing emails and analysing a packet capture file in a real-world
+context.
+Doing this program confirmed that I really enjoy working on complex security
+threats and I’m excited to apply these skills on a cybersecurity team at a
+company like ANZ.
 
